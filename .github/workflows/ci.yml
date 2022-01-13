@@ -18,10 +18,12 @@ jobs:
 
       - name: Build with Gradle!
         working-directory: .
-        run: ./gradlew build -x test
+        run: chmod +x gradlew
+             ./gradlew build -x test
 
       - name: Run tests, please
         working-directory: . 
-        run: ./gradlew test
+        run: chmod +x gradlew
+            ./gradlew test
 
 
