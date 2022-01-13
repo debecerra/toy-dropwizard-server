@@ -8,7 +8,7 @@ public class TestHello {
     public void testFoo() {
         int result = 5 + 5 * 2;
         // fail a test on purpose
-        assertEquals(result, 20);
+        assertEquals(result, 15);
     }
 
 }
