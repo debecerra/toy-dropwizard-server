@@ -40,6 +40,16 @@ shadowJar {
     archiveName rootProject.name + '-' + rootProject.version + '.jar'
 }
 
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        csv.required = true
+        html.required = true
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
 run {
     args = ['server', 'hello-world.yml']
 }
