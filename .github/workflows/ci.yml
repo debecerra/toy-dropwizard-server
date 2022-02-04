@@ -66,3 +66,29 @@ jobs:
         with:
           name: jacoco-report
           path: build/reports/jacoco
+
+
+  system-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run Docker Compose
+        working-directory: .
+        run: docker-compose up --build -d
+
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - run: pip install pytest requests
+
+      - name: Check running containers
+        run: docker ps -a
+
+      - name: Run system tests
+        working-directory: .
+        run: python -m pytest
+
+      - name: Bring server down
+        working-directory: .
+        run: docker-compose down

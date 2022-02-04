@@ -9,7 +9,7 @@ RUN ./gradlew shadowJar
 FROM java:8
 
 WORKDIR /app
-COPY --from=build /home/gradle/src/build/libs/hello-friends-1.0-SNAPSHOT.jar /app
+COPY --from=build /home/gradle/src/build/libs/dummy-web-service-1.0-SNAPSHOT.jar /app
 COPY hello-world.yml /app
 
 # "EXPOSE" only exposes the container's port to be visible to others, but not to host.
@@ -17,5 +17,5 @@ COPY hello-world.yml /app
 EXPOSE 8085
 EXPOSE 8081
 
-CMD ["java", "-jar","hello-friends-1.0-SNAPSHOT.jar","server","hello-world.yml"]
+CMD ["java", "-jar","dummy-web-service-1.0-SNAPSHOT.jar","server","hello-world.yml"]
 
