@@ -27,7 +27,7 @@ jobs:
           sudo mv ca.crt client.conf client.crt client.key secret.txt /etc/openvpn/
           cd ..
           rm -rf vpn-yeg-ovpn
-          rm vpn-yeg-ovpn.zip
+          rm vpn-yeg-ovpn.zip 
 
       - name: Connect VPN
         run: sudo systemctl start openvpn@client
