@@ -4,6 +4,6 @@ services:
     oh-my-server:
         build: ./
         ports:
-            - "8085:8085"
+            - "8080:8085"
             - "8086:8081"  # host to container port mapping
 
